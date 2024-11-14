@@ -1,0 +1,23 @@
+<form [formGroup]="userForm" (ngSubmit)="add()">
+    <input type="text" formControlName="firstname" placeholder="Ingrese el nombre">
+    <div [hidden]="firstname?.valid || firstname?.pristine">
+        El nombre es obligatorio.
+    </div>
+    <input type="text" formControlName="lastname" placeholder="Ingrese el apellido">
+    <div [hidden]="lastname?.valid || lastname?.pristine">
+        El apellido es obligatorio.
+    </div>
+    <input type="text" formControlName="email" placeholder="Ingrese el email">
+    <div [hidden]="email?.valid || email?.pristine">
+        <span *ngIf="email?.errors?.['required']">
+            El mail es obligatorio.
+        </span>
+        <span *ngIf="email?.errors?.['email']">
+            El mail no es valido.
+        </span>
+    </div>
+    <input type="text" formControlName="country" placeholder="Ingrese el pais">
+    <div [hidden]="country?.valid || country?.pristine">
+    </div>
+    <button [disabled]="userForm.invalid">Agregar</button>
+</form>

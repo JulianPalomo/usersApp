@@ -1,0 +1,16 @@
+<table>
+    <thead>
+        <td>ID</td>
+        <td>MAIL</td>
+        <td>ELIMINAR</td>
+        <td>INFO</td>
+    </thead>
+    <tbody>
+        <tr *ngFor='let user of users'>
+            <td>{{user.id}}</td>
+            <td>{{user.email}}</td>
+            <td><button type="button" (click)="deleteUser(user.id)">DELETE</button></td>
+            <td><button type="button" [routerLink]="['/info', user.id]">INFO</button></td>
+        </tr>
+    </tbody>
+</table>
